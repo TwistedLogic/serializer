@@ -212,7 +212,7 @@ class XmlSerializationVisitor extends AbstractVisitor
             return;
         }
 
-        if ($addEnclosingElement = (!$metadata->xmlCollection || !$metadata->xmlCollectionInline) && !$metadata->inline) {
+        if ($addEnclosingElement = (!$metadata->xmlCollection || !$metadata->xmlCollectionInline) && (!$metadata->inline || !$context->attributes->get('ignore_inline')->isEmpty())) {
             $element = $this->document->createElement($this->namingStrategy->translateName($metadata));
             $this->setCurrentNode($element);
         }

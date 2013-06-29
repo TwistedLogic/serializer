@@ -161,7 +161,7 @@ class YamlSerializationVisitor extends AbstractVisitor
 
         $name = $this->namingStrategy->translateName($metadata);
 
-        if (!$metadata->inline) {
+        if (!$metadata->inline || !$context->attributes->get('ignore_inline')->isEmpty()) {
             $this->writer
                  ->writeln(Inline::dump($name).':')
                  ->indent();
@@ -180,7 +180,7 @@ class YamlSerializationVisitor extends AbstractVisitor
             $this->writer->revert();
         }
 
-        if (!$metadata->inline) {
+        if (!$metadata->inline || !$context->attributes->get('ignore_inline')->isEmpty()) {
             $this->writer->outdent();
         }
         $this->revertCurrentMetadata();

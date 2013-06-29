@@ -403,6 +403,13 @@ abstract class BaseSerializationTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($this->getContent('inline'), $result);
 
         // no deserialization support
+        // test ignoring inline because no deserialization support
+
+        $context = SerializationContext::create();
+        $context->setAttribute('ignore_inline', true);
+
+        $result = $this->serialize($inline, $context);
+        $this->assertEquals($this->getContent('inline_ignored'), $result);
     }
 
     /**
