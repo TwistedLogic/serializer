@@ -18,6 +18,9 @@
         "phpcollection/phpcollection": ">=0.1,<0.3-dev",
         "doctrine/annotations": "1.*"
     },
+    "replace": {
+        "jms/serializer": "self.version"
+    },
     "suggest": {
         "symfony/yaml": "Required if you'd like to serialize data to YAML format."
     },
