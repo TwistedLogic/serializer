@@ -1,5 +1,5 @@
 {
-    "name": "jms/serializer",
+    "name": "TwistedLogic/serializer",
     "type": "library",
     "description": "Library for (de-)serializing data of any complexity; supports XML, JSON, and YAML.",
     "keywords": ["serialization", "deserialization", "json", "jaxb", "xml"],
@@ -20,6 +20,9 @@
     },
     "suggest": {
         "symfony/yaml": "Required if you'd like to serialize data to YAML format."
+    },
+    "replace": {
+        "jms/serializer": "self.version"
     },
     "minimum-stability": "dev",
     "require-dev": {
