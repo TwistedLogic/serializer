@@ -16,25 +16,23 @@
  * limitations under the License.
  */
 
-namespace JMS\Serializer\Handler;
+namespace JMS\Serializer\Tests\Fixtures;
 
-interface SubscribingHandlerInterface
+use JMS\Serializer\Annotation as Serializer;
+
+/** @Serializer\AccessorOrder("custom",  custom = {"method", "b", "a"}) */
+class AccessorOrderMethod
 {
+    private $b = 'b', $a = 'a';
+
     /**
-     * Return format:
+     * @Serializer\VirtualProperty
+     * @Serializer\SerializedName("foo")
      *
-     *      array(
-     *          array(
-     *              'direction' => GraphNavigator::DIRECTION_SERIALIZATION,
-     *              'format' => 'json',
-     *              'type' => 'DateTime',
-     *              'method' => 'serializeDateTimeToJson',
-     *          ),
-     *      )
-     *
-     * The direction and method keys can be omitted.
-     *
-     * @return array
+     * @return string
      */
-    public static function getSubscribingMethods();
+    public function getMethod()
+    {
+        return 'c';
+    }
 }
