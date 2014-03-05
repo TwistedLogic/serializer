@@ -148,6 +148,8 @@ abstract class GenericSerializationVisitor extends AbstractVisitor
             if (is_array($v)) {
                 if ($context->attributes->get('ignore_inline')->isEmpty()) {
                     $this->data = array_merge($this->data, $v);
+                } else {
+                    $this->data[$k] = $v;
                 }
             }
         } else {
