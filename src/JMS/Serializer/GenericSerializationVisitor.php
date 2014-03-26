@@ -151,6 +151,8 @@ abstract class GenericSerializationVisitor extends AbstractVisitor
                 } else {
                     $this->data[$k] = $v;
                 }
+            } else {
+                $this->data[$k] = $v;
             }
         } else {
             $this->data[$k] = $v;
